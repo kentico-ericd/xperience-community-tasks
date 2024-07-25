@@ -9,6 +9,9 @@ When you create a new task, you must supply the `Settings` property which contro
 - __ExecutionHours__: The hours of the day which the task is allowed to execute. If not set, the task executes at any hour
 
 ```cs
+// A task that executes all day every 5 minutes
+public XperienceTaskSettings Settings => new("Clear temporary files", 5);
+
 // A task that executes every hour between 11PM-1AM
 public XperienceTaskSettings Settings => new("Synchronize products", 60) {
     ExecutionHours = new int[] { 23, 0 }
