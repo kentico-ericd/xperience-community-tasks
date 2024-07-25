@@ -1,6 +1,6 @@
 # Xperience by Kentico Tasks
 
-[![Nuget](https://img.shields.io/nuget/v/Labs.Kentico.Xperience.Tasks)](https://www.nuget.org/packages/Labs.Kentico.Xperience.Tasks#versions-body-tab)
+[![Nuget](https://img.shields.io/nuget/v/Xperience.Labs.Tasks)](https://www.nuget.org/packages/Xperience.Labs.Tasks#versions-body-tab)
 [![build](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml/badge.svg)](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml)
 
 ## Description
@@ -18,7 +18,7 @@ This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/
 Add the package to your application using the .NET CLI
 
 ```powershell
-dotnet add package Labs.Kentico.Xperience.Tasks
+dotnet add package Xperience.Labs.Tasks
 ```
 
 ## Quick Start

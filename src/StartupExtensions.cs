@@ -1,9 +1,9 @@
-﻿using Labs.Kentico.Xperience.Tasks.Repositories;
+﻿using Xperience.Labs.Tasks.Repositories;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Labs.Kentico.Xperience.Tasks;
+namespace Xperience.Labs.Tasks;
 
 /// <summary>
 /// Contains methods for initializing the Xperience tasks integration.
