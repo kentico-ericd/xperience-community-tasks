@@ -13,7 +13,7 @@ internal interface IXperienceTaskRepository
     /// <summary>
     /// Sets the time that the task should execute next.
     /// </summary>
-    void SetNextRun(IXperienceTask task, DateTime lastRun);
+    void SetNextRun(IXperienceTask task, DateTime nextRun);
 
     /// <summary>
     /// Returns <c>false</c> if registered task names are invalid and should not be processed.

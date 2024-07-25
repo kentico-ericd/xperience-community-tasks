@@ -10,7 +10,7 @@ internal class XperienceTaskRepository : IXperienceTaskRepository
 
     public XperienceTaskRepository(IEnumerable<IXperienceTask> tasks) => this.tasks = tasks;
 
-    public void SetNextRun(IXperienceTask task, DateTime lastRun) => nextRuns[task.Settings.Name] = lastRun;
+    public void SetNextRun(IXperienceTask task, DateTime nextRun) => nextRuns[task.Settings.Name] = nextRun;
 
     public IEnumerable<IXperienceTask> GetTasksToRun() => tasks.Where(t =>
         (!t.Settings.ExecutionHours.Any() || t.Settings.ExecutionHours.Contains(DateTime.Now.Hour))

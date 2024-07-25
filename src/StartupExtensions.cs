@@ -1,7 +1,7 @@
-﻿using Xperience.Labs.Tasks.Repositories;
-
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+
+using Xperience.Labs.Tasks.Repositories;
 
 namespace Xperience.Labs.Tasks;
 
