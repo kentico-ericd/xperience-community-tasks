@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Kentico.Xperience.Tasks</RootNamespace>
+		<NoWarn>$(NoWarn);S1075</NoWarn>
+		<LangVersion>latest</LangVersion>
+
+		<!-- Required to prevent type conflicts with existing types -->
+		<HotChocolateImplicitUsings>disable</HotChocolateImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute"></AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Kentico.Xperience.WebApp" />
+	</ItemGroup>
+</Project>
