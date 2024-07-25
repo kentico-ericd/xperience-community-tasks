@@ -27,6 +27,13 @@ internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
 
     protected override void Process()
     {
+        if (!taskRepository.ValidateTaskNames())
+        {
+            LogDuplicateTasks();
+
+            return;
+        }
+
         var tasks = taskRepository.GetTasksToRun();
         if (!tasks.Any())
         {
@@ -36,14 +43,33 @@ internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
         LogProcessStart(tasks);
         foreach (var task in tasks)
         {
-            taskRepository.SetNextRun(task, DateTime.Now.AddMinutes(task.Settings.IntervalMinutes));
-            new CMSThread(new ThreadStart(() => task.Execute())).RunAsync();
+            new CMSThread(new ThreadStart(() => RunTask(task))).RunAsync();
         }
+    }
+
+    private void LogDuplicateTasks()
+    {
+        string msg = "Cannot execute tasks with duplicate names. Worker thread will not execute any tasks until this error is corrected.";
+        logService.LogError(nameof(XperienceTaskWorker), nameof(Process), msg);
+        StopExecution();
     }
 
     private void LogProcessStart(IEnumerable<IXperienceTask> tasks)
     {
         string taskNames = string.Join(string.Empty, tasks.Select(t => $"\n - {t.Settings.Name}"));
         logService.LogInformation(nameof(XperienceTaskWorker), nameof(Process), $"Executing tasks:{taskNames}");
+    }
+
+    private void RunTask(IXperienceTask task)
+    {
+        try
+        {
+            taskRepository.SetNextRun(task, DateTime.Now.AddMinutes(task.Settings.IntervalMinutes));
+            task.Execute();
+        }
+        catch (Exception ex)
+        {
+            logService.LogException(nameof(XperienceTaskWorker), nameof(RunTask), ex, $"Error running task '{task.Settings.Name}'");
+        }
     }
 }

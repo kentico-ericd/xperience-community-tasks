@@ -26,7 +26,8 @@ public static class StartupExtensions
     public static IServiceCollection AddKenticoTasks(this IServiceCollection services)
     {
         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        var types = assemblies.SelectMany(a => a.GetTypes()).Where(t => t.IsClass
+        var types = assemblies.SelectMany(a => a.GetTypes()).Where(t =>
+                        t.IsClass
                         && !t.IsAbstract
                         && typeof(IXperienceTask).IsAssignableFrom(t));
         foreach (var implementationType in types)

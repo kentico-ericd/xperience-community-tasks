@@ -17,5 +17,7 @@ internal class XperienceTaskRepository : IXperienceTaskRepository
         && DateTime.Now >= GetNextRun(t)
         && t.ShouldExecute());
 
+    public bool ValidateTaskNames() => tasks.DistinctBy(t => t.Settings.Name).Count() == tasks.Count();
+
     private DateTime GetNextRun(IXperienceTask task) => nextRuns.GetValueOrDefault(task.Settings.Name);
 }
