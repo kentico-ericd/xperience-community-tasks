@@ -5,7 +5,7 @@
 
 ## Description
 
-This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/configuring-xperience/scheduling-tasks) for Xperience by Kentico. This package does _not_ store information in the database or contain UI pages. This means that tasks are executed when the application starts, then execute based on their provided intervals.
+This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/configuring-xperience/scheduling-tasks) for Xperience by Kentico. This package does _not_ store information in the database or contain UI pages. This means that tasks are executed when the application starts (unless [time restricted](/docs/Usage-Guide.md)), then execute based on their provided intervals.
 
 ## Library Version Matrix
 
