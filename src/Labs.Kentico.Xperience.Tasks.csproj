@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<RootNamespace>Kentico.Xperience.Tasks</RootNamespace>
+		<RootNamespace>Labs.Kentico.Xperience.Tasks</RootNamespace>
 		<NoWarn>$(NoWarn);S1075</NoWarn>
 		<LangVersion>latest</LangVersion>
 

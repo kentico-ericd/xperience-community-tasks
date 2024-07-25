@@ -1,4 +1,4 @@
-﻿namespace Kentico.Xperience.Tasks;
+﻿namespace Labs.Kentico.Xperience.Tasks;
 
 /// <summary>
 /// Represents the configuration of an individual <see cref="IXperienceTask"/>.

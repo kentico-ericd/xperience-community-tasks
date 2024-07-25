@@ -1,4 +1,4 @@
-﻿namespace Kentico.Xperience.Tasks.Repositories;
+﻿namespace Labs.Kentico.Xperience.Tasks.Repositories;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskRepository"/>.

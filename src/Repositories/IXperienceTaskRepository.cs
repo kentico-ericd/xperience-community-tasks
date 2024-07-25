@@ -1,4 +1,4 @@
-﻿namespace Kentico.Xperience.Tasks.Repositories;
+﻿namespace Labs.Kentico.Xperience.Tasks.Repositories;
 
 /// <summary>
 /// Contains methods for getting tasks and managing execution times.

@@ -1,9 +1,9 @@
 ﻿using CMS.Base;
 using CMS.Core;
 
-using Kentico.Xperience.Tasks.Repositories;
+using Labs.Kentico.Xperience.Tasks.Repositories;
 
-namespace Kentico.Xperience.Tasks;
+namespace Labs.Kentico.Xperience.Tasks;
 
 /// <summary>
 /// Background thread worker which processes Xperience tasks.

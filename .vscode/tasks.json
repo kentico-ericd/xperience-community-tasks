@@ -39,7 +39,7 @@
       "label": ".NET: format (Tasks)",
       "command": "dotnet",
       "type": "process",
-      "args": ["format", "Kentico.Xperience.Tasks.csproj"],
+      "args": ["format", "Labs.Kentico.Xperience.Tasks.csproj"],
       "problemMatcher": "$msCompile",
       "options": {
         "cwd": "${workspaceFolder}/src/Kentico.Xperience.Tasks"

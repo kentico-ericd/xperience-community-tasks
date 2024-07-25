@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.Tasks", "src\Kentico.Xperience.Tasks.csproj", "{96E9F75A-5479-4B7C-A576-CA43DE64D6B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labs.Kentico.Xperience.Tasks", "src\Labs.Kentico.Xperience.Tasks.csproj", "{96E9F75A-5479-4B7C-A576-CA43DE64D6B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
