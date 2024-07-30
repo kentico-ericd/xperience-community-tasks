@@ -2,6 +2,7 @@
 using CMS.Core;
 
 using Xperience.Labs.Tasks.Repositories;
+using Xperience.Labs.Tasks.Services;
 
 namespace Xperience.Labs.Tasks;
 
@@ -11,6 +12,7 @@ namespace Xperience.Labs.Tasks;
 internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
 {
     private readonly IEventLogService logService;
+    private readonly IXperienceTaskRunner taskRunner;
     private readonly IXperienceTaskRepository taskRepository;
 
     protected override int DefaultInterval => 60000;
@@ -18,6 +20,7 @@ internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
     public XperienceTaskWorker()
     {
         logService = Service.Resolve<IEventLogService>();
+        taskRunner = Service.Resolve<IXperienceTaskRunner>();
         taskRepository = Service.Resolve<IXperienceTaskRepository>();
     }
 
@@ -43,7 +46,7 @@ internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
         LogProcessStart(tasks);
         foreach (var task in tasks)
         {
-            new CMSThread(new ThreadStart(() => RunTask(task))).RunAsync();
+            taskRunner.Run(task);
         }
     }
 
@@ -58,18 +61,5 @@ internal class XperienceTaskWorker : ThreadWorker<XperienceTaskWorker>
     {
         string taskNames = string.Join(string.Empty, tasks.Select(t => $"\n - {t.Settings.Name}"));
         logService.LogInformation(nameof(XperienceTaskWorker), nameof(Process), $"Executing tasks:{taskNames}");
-    }
-
-    private void RunTask(IXperienceTask task)
-    {
-        try
-        {
-            taskRepository.SetNextRun(task, DateTime.Now.AddMinutes(task.Settings.IntervalMinutes));
-            task.Execute();
-        }
-        catch (Exception ex)
-        {
-            logService.LogException(nameof(XperienceTaskWorker), nameof(RunTask), ex, $"Error running task '{task.Settings.Name}'");
-        }
     }
 }

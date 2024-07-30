@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 using Xperience.Labs.Tasks.Repositories;
+using Xperience.Labs.Tasks.Services;
 
 namespace Xperience.Labs.Tasks;
 
@@ -38,7 +39,9 @@ public static class StartupExtensions
             }
         }
 
+        services.AddSingleton<IXperienceTaskRunner, XperienceTaskRunner>();
         services.AddSingleton<IXperienceTaskRepository, XperienceTaskRepository>();
+        services.AddSingleton<IXperienceTaskMetadataService, XperienceTaskMetadataService>();
 
         return services;
     }

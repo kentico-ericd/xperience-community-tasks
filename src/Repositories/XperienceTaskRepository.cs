@@ -1,4 +1,6 @@
-﻿namespace Xperience.Labs.Tasks.Repositories;
+﻿using Xperience.Labs.Tasks.Services;
+
+namespace Xperience.Labs.Tasks.Repositories;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskRepository"/>.
@@ -6,18 +8,20 @@
 internal class XperienceTaskRepository : IXperienceTaskRepository
 {
     private readonly IEnumerable<IXperienceTask> tasks;
-    private readonly Dictionary<string, DateTime> nextRuns = [];
+    private readonly IXperienceTaskMetadataService metadataService;
 
-    public XperienceTaskRepository(IEnumerable<IXperienceTask> tasks) => this.tasks = tasks;
+    public XperienceTaskRepository(IEnumerable<IXperienceTask> tasks, IXperienceTaskMetadataService metadataService)
+    {
+        this.tasks = tasks;
+        this.metadataService = metadataService;
+    }
 
-    public void SetNextRun(IXperienceTask task, DateTime nextRun) => nextRuns[task.Settings.Name] = nextRun;
+    public IEnumerable<IXperienceTask> GetTasks() => tasks;
 
     public IEnumerable<IXperienceTask> GetTasksToRun() => tasks.Where(t =>
         (!t.Settings.ExecutionHours.Any() || t.Settings.ExecutionHours.Contains(DateTime.Now.Hour))
-        && DateTime.Now >= GetNextRun(t)
+        && DateTime.Now >= metadataService.GetMetadata(t).NextRun
         && t.ShouldExecute());
 
     public bool ValidateTaskNames() => tasks.DistinctBy(t => t.Settings.Name).Count() == tasks.Count();
-
-    private DateTime GetNextRun(IXperienceTask task) => nextRuns.GetValueOrDefault(task.Settings.Name);
 }

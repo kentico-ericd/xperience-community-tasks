@@ -64,3 +64,11 @@ public class MyTask : IXperienceTask
     public bool ShouldExecute() => ValidationHelper.GetBoolean(settingsService["MyTaskEnabled"], true);
 }
 ```
+
+## Administration UI
+
+There is a new __Tasks__ application that can be found under the __Development__ category. Within the application, you can view a list of registered tasks as well as their configuration:
+
+![Task listing](/images/ui.png)
+
+In each row, there is an "Execute" action which will run the task immediately. The task will run regardless of its scheduled next run time and allowed hours.
