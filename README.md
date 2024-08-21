@@ -13,7 +13,7 @@ This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/
 
 | Xperience Version | Library Version |
 | ----------------- | --------------- |
-| 29.x.y            | 1.x.y           |
+| 29.x.y            | >=1.x.y         |
 
 ## :gear: Package Installation
 
