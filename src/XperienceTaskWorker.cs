@@ -1,10 +1,10 @@
 ﻿using CMS.Base;
 using CMS.Core;
 
-using Xperience.Labs.Tasks.Repositories;
-using Xperience.Labs.Tasks.Services;
+using Xperience.Community.Tasks.Repositories;
+using Xperience.Community.Tasks.Services;
 
-namespace Xperience.Labs.Tasks;
+namespace Xperience.Community.Tasks;
 
 /// <summary>
 /// Background thread worker which processes Xperience tasks.

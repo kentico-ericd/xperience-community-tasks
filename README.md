@@ -1,7 +1,7 @@
-# ⏲️ Xperience by Kentico Tasks
+# ⏲️ Xperience Community: Tasks
 
-[![Nuget](https://img.shields.io/nuget/v/Xperience.Labs.Tasks)](https://www.nuget.org/packages/Xperience.Labs.Tasks#versions-body-tab)
-[![build](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml/badge.svg)](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml)
+[![Nuget](https://img.shields.io/nuget/v/Xperience.Community.Tasks)](https://www.nuget.org/packages/Xperience.Community.Tasks#versions-body-tab)
+[![build](https://github.com/kentico-ericd/xperience-community-tasks/actions/workflows/build.yml/badge.svg)](https://github.com/kentico-ericd/xperience-community-tasks/actions/workflows/build.yml)
 
 ![Task listing](/images/ui.png)
 
@@ -20,7 +20,7 @@ This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/
 Add the package to your application using the .NET CLI
 
 ```powershell
-dotnet add package Xperience.Labs.Tasks
+dotnet add package Xperience.Community.Tasks
 ```
 
 ## 🚀 Quick Start

@@ -1,7 +1,7 @@
 ﻿using CMS.Base;
 using CMS.Core;
 
-namespace Xperience.Labs.Tasks.Services;
+namespace Xperience.Community.Tasks.Services;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskRunner"/>.

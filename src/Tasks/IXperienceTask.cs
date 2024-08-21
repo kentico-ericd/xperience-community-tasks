@@ -1,4 +1,4 @@
-﻿namespace Xperience.Labs.Tasks;
+﻿namespace Xperience.Community.Tasks;
 
 /// <summary>
 /// Represents an Xperience by Kentico task which runs in the background on a timer.

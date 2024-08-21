@@ -2,9 +2,9 @@
 
 using Kentico.Xperience.Admin.Base;
 
-using Xperience.Labs.Tasks.Admin;
-using Xperience.Labs.Tasks.Repositories;
-using Xperience.Labs.Tasks.Services;
+using Xperience.Community.Tasks.Admin;
+using Xperience.Community.Tasks.Repositories;
+using Xperience.Community.Tasks.Services;
 
 using Action = Kentico.Xperience.Admin.Base.Action;
 
@@ -16,7 +16,7 @@ using Action = Kentico.Xperience.Admin.Base.Action;
    templateName: TemplateNames.LISTING,
    order: UIPageOrder.First)]
 
-namespace Xperience.Labs.Tasks.Admin;
+namespace Xperience.Community.Tasks.Admin;
 
 /// <summary>
 /// An admin UI page that displays statistics about the registered Xperience tasks.

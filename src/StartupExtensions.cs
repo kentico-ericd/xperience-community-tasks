@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-using Xperience.Labs.Tasks.Repositories;
-using Xperience.Labs.Tasks.Services;
+using Xperience.Community.Tasks.Repositories;
+using Xperience.Community.Tasks.Services;
 
-namespace Xperience.Labs.Tasks;
+namespace Xperience.Community.Tasks;
 
 /// <summary>
 /// Contains methods for initializing the Xperience tasks integration.

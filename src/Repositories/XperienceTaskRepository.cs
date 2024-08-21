@@ -1,6 +1,6 @@
-﻿using Xperience.Labs.Tasks.Services;
+﻿using Xperience.Community.Tasks.Services;
 
-namespace Xperience.Labs.Tasks.Repositories;
+namespace Xperience.Community.Tasks.Repositories;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskRepository"/>.

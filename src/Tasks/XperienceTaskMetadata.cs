@@ -1,4 +1,4 @@
-﻿namespace Xperience.Labs.Tasks.Tasks;
+﻿namespace Xperience.Community.Tasks.Tasks;
 
 /// <summary>
 /// Represents individual in-memory task metadata
