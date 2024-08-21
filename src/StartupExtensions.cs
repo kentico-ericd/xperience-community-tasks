@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using Xperience.Community.Tasks.Repositories;
-using Xperience.Community.Tasks.Services;
+using XperienceCommunity.Tasks.Repositories;
+using XperienceCommunity.Tasks.Services;
 
-namespace Xperience.Community.Tasks;
+namespace XperienceCommunity.Tasks;
 
 /// <summary>
 /// Contains methods for initializing the Xperience tasks integration.

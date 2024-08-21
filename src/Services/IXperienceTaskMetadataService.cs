@@ -1,6 +1,6 @@
-﻿using Xperience.Community.Tasks.Tasks;
+﻿using XperienceCommunity.Tasks.Tasks;
 
-namespace Xperience.Community.Tasks.Services;
+namespace XperienceCommunity.Tasks.Services;
 
 /// <summary>
 /// Contains methods for managing task metadata.

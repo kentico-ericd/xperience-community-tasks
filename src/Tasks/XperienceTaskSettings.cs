@@ -1,4 +1,4 @@
-﻿namespace Xperience.Community.Tasks;
+﻿namespace XperienceCommunity.Tasks;
 
 /// <summary>
 /// Represents the configuration of an individual <see cref="IXperienceTask"/>.

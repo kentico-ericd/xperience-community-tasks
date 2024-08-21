@@ -1,4 +1,4 @@
-﻿namespace Xperience.Community.Tasks.Repositories;
+﻿namespace XperienceCommunity.Tasks.Repositories;
 
 /// <summary>
 /// Contains methods for getting tasks and managing execution times.

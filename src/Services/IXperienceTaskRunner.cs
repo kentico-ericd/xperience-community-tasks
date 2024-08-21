@@ -1,4 +1,4 @@
-﻿namespace Xperience.Community.Tasks.Services;
+﻿namespace XperienceCommunity.Tasks.Services;
 
 /// <summary>
 /// Contains methods for executing tasks.

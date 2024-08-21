@@ -3,10 +3,10 @@
 using CMS.Core;
 using CMS.DataEngine;
 
-using Xperience.Community.Tasks.Repositories;
-using Xperience.Community.Tasks.Services;
+using XperienceCommunity.Tasks.Repositories;
+using XperienceCommunity.Tasks.Services;
 
-namespace Xperience.Community.Tasks;
+namespace XperienceCommunity.Tasks;
 
 public class XperienceTaskBackgroundService : ApplicationBackgroundService
 {
