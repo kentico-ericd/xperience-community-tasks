@@ -3,7 +3,7 @@
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.UIPages;
 
-using Xperience.Labs.Tasks.Admin;
+using XperienceCommunity.Tasks.Admin;
 
 [assembly: UIApplication(
     identifier: TaskApplicationPage.IDENTIFIER,
@@ -14,7 +14,7 @@ using Xperience.Labs.Tasks.Admin;
     icon: Icons.TimedBox,
     templateName: TemplateNames.SECTION_LAYOUT)]
 
-namespace Xperience.Labs.Tasks.Admin;
+namespace XperienceCommunity.Tasks.Admin;
 
 [UIPermission(SystemPermissions.VIEW)]
 [UIPermission(SystemPermissions.CREATE)]
@@ -22,5 +22,5 @@ namespace Xperience.Labs.Tasks.Admin;
 [UIPermission(SystemPermissions.DELETE)]
 internal class TaskApplicationPage : ApplicationPage
 {
-    public const string IDENTIFIER = "Xperience.Labs.Tasks.Admin";
+    public const string IDENTIFIER = "XperienceCommunity.Tasks.Admin";
 }

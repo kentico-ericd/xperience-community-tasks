@@ -1,4 +1,4 @@
-﻿namespace Xperience.Labs.Tasks;
+﻿namespace XperienceCommunity.Tasks;
 
 /// <summary>
 /// Represents an Xperience by Kentico task which runs in the background on a timer.
@@ -13,7 +13,7 @@ public interface IXperienceTask
     /// <summary>
     /// Executes the task.
     /// </summary>
-    void Execute();
+    Task Execute(CancellationToken cancellationToken);
 
     /// <summary>
     /// Called before the task executes.

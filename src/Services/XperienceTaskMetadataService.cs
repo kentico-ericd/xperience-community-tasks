@@ -1,6 +1,6 @@
-﻿using Xperience.Labs.Tasks.Tasks;
+﻿using XperienceCommunity.Tasks.Tasks;
 
-namespace Xperience.Labs.Tasks.Services;
+namespace XperienceCommunity.Tasks.Services;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskMetadataService"/>.

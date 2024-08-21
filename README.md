@@ -1,7 +1,7 @@
-# ⏲️ Xperience by Kentico Tasks
+# ⏲️ Xperience Community: Tasks
 
-[![Nuget](https://img.shields.io/nuget/v/Xperience.Labs.Tasks)](https://www.nuget.org/packages/Xperience.Labs.Tasks#versions-body-tab)
-[![build](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml/badge.svg)](https://github.com/kentico-ericd/xperience-by-kentico-tasks/actions/workflows/build.yml)
+[![Nuget](https://img.shields.io/nuget/v/XperienceCommunity.Tasks)](https://www.nuget.org/packages/XperienceCommunity.Tasks#versions-body-tab)
+[![build](https://github.com/kentico-ericd/xperience-community-tasks/actions/workflows/build.yml/badge.svg)](https://github.com/kentico-ericd/xperience-community-tasks/actions/workflows/build.yml)
 
 ![Task listing](/images/ui.png)
 
@@ -20,7 +20,7 @@ This is a basic implementation of [Scheduled tasks](https://docs.kentico.com/13/
 Add the package to your application using the .NET CLI
 
 ```powershell
-dotnet add package Xperience.Labs.Tasks
+dotnet add package XperienceCommunity.Tasks
 ```
 
 ## 🚀 Quick Start
@@ -29,8 +29,6 @@ Add the following to your application's startup code:
 
 ```cs
 builder.Services.AddKenticoTasks();
-...
-app.StartKenticoTasks();
 ```
 
 Create one or more classes implementing `IXperienceTask` to run your custom code:
@@ -40,7 +38,7 @@ public class MyTask : IXperienceTask
 {
     public XperienceTaskSettings Settings => new(nameof(MyTask), 1);
 
-    public void Execute()
+    public Task Execute(CancellationToken cancellationToken)
     {
         // Do something...
     }

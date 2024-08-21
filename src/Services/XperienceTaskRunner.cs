@@ -1,7 +1,6 @@
-﻿using CMS.Base;
-using CMS.Core;
+﻿using CMS.Core;
 
-namespace Xperience.Labs.Tasks.Services;
+namespace XperienceCommunity.Tasks.Services;
 
 /// <summary>
 /// Default implementation of <see cref="IXperienceTaskRunner"/>.
@@ -17,19 +16,21 @@ internal class XperienceTaskRunner : IXperienceTaskRunner
         this.metadataService = metadataService;
     }
 
-    public void Run(IXperienceTask task)
+    public Task Run(IXperienceTask task, CancellationToken cancellationToken)
     {
         try
         {
             var meta = metadataService.GetMetadata(task);
             meta.LastRun = DateTime.Now;
-            meta.NextRun = DateTime.Now.AddMinutes(task.Settings.IntervalMinutes);
+            task.Execute(cancellationToken);
             meta.Executions++;
-            new CMSThread(new ThreadStart(task.Execute)).RunAsync();
+            meta.NextRun = DateTime.Now.AddMinutes(task.Settings.IntervalMinutes);
         }
         catch (Exception ex)
         {
             logService.LogException(nameof(XperienceTaskRunner), nameof(Run), ex, $"Error running task '{task.Settings.Name}'");
         }
+
+        return Task.CompletedTask;
     }
 }

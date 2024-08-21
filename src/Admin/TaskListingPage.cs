@@ -2,9 +2,9 @@
 
 using Kentico.Xperience.Admin.Base;
 
-using Xperience.Labs.Tasks.Admin;
-using Xperience.Labs.Tasks.Repositories;
-using Xperience.Labs.Tasks.Services;
+using XperienceCommunity.Tasks.Admin;
+using XperienceCommunity.Tasks.Repositories;
+using XperienceCommunity.Tasks.Services;
 
 using Action = Kentico.Xperience.Admin.Base.Action;
 
@@ -16,7 +16,7 @@ using Action = Kentico.Xperience.Admin.Base.Action;
    templateName: TemplateNames.LISTING,
    order: UIPageOrder.First)]
 
-namespace Xperience.Labs.Tasks.Admin;
+namespace XperienceCommunity.Tasks.Admin;
 
 /// <summary>
 /// An admin UI page that displays statistics about the registered Xperience tasks.
@@ -61,7 +61,7 @@ internal class TaskListingPage : ListingPageBase<ListingConfiguration>
     }
 
     [PageCommand]
-    public Task<ICommandResponse<RowActionResult>> Execute(int id, CancellationToken _)
+    public Task<ICommandResponse<RowActionResult>> Execute(int id, CancellationToken cancellationToken)
     {
         var task = taskRepository.GetTasks().FirstOrDefault(t => t.GetHashCode() == id);
         if (task is null)
@@ -69,7 +69,7 @@ internal class TaskListingPage : ListingPageBase<ListingConfiguration>
             return Task.FromResult(ResponseFrom(new RowActionResult(false)).AddErrorMessage("Failed to retrieve task."));
         }
 
-        taskRunner.Run(task);
+        taskRunner.Run(task, cancellationToken);
 
         return Task.FromResult(ResponseFrom(new RowActionResult(true)).AddInfoMessage($"Task executed successfully."));
     }
