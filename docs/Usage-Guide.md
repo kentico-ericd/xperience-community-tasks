@@ -31,7 +31,7 @@ public class MyTask : IXperienceTask
 
     public MyTask(IEventLogService eventLogService) => this.eventLogService = eventLogService;
 
-    public Task Execute() {
+    public Task Execute(CancellationToken cancellationToken) {
         eventLogService.LogWarning(nameof(MyTask), nameof(Execute), "I ran");
 
         return Task.CompletedTask;
@@ -60,7 +60,7 @@ public class MyTask : IXperienceTask
 
     public MyTask(ISettingsService settingsService) => this.settingsService = settingsService;
 
-    public Task Execute()
+    public Task Execute(CancellationToken cancellationToken)
     {
         // Do something...
     }

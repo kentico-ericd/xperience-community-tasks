@@ -16,13 +16,13 @@ internal class XperienceTaskRunner : IXperienceTaskRunner
         this.metadataService = metadataService;
     }
 
-    public Task Run(IXperienceTask task)
+    public Task Run(IXperienceTask task, CancellationToken cancellationToken)
     {
         try
         {
             var meta = metadataService.GetMetadata(task);
             meta.LastRun = DateTime.Now;
-            task.Execute();
+            task.Execute(cancellationToken);
             meta.Executions++;
             meta.NextRun = DateTime.Now.AddMinutes(task.Settings.IntervalMinutes);
         }

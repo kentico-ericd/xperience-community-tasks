@@ -38,7 +38,7 @@ public class MyTask : IXperienceTask
 {
     public XperienceTaskSettings Settings => new(nameof(MyTask), 1);
 
-    public Task Execute()
+    public Task Execute(CancellationToken cancellationToken)
     {
         // Do something...
     }

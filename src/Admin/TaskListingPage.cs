@@ -61,7 +61,7 @@ internal class TaskListingPage : ListingPageBase<ListingConfiguration>
     }
 
     [PageCommand]
-    public Task<ICommandResponse<RowActionResult>> Execute(int id, CancellationToken _)
+    public Task<ICommandResponse<RowActionResult>> Execute(int id, CancellationToken cancellationToken)
     {
         var task = taskRepository.GetTasks().FirstOrDefault(t => t.GetHashCode() == id);
         if (task is null)
@@ -69,7 +69,7 @@ internal class TaskListingPage : ListingPageBase<ListingConfiguration>
             return Task.FromResult(ResponseFrom(new RowActionResult(false)).AddErrorMessage("Failed to retrieve task."));
         }
 
-        taskRunner.Run(task);
+        taskRunner.Run(task, cancellationToken);
 
         return Task.FromResult(ResponseFrom(new RowActionResult(true)).AddInfoMessage($"Task executed successfully."));
     }

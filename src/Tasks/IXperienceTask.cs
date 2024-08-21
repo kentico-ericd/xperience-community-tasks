@@ -13,7 +13,7 @@ public interface IXperienceTask
     /// <summary>
     /// Executes the task.
     /// </summary>
-    Task Execute();
+    Task Execute(CancellationToken cancellationToken);
 
     /// <summary>
     /// Called before the task executes.

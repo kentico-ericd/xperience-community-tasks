@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-using CMS.Core;
+﻿using CMS.Core;
 using CMS.DataEngine;
 
 using XperienceCommunity.Tasks.Repositories;
@@ -45,19 +43,19 @@ public class XperienceTaskBackgroundService : ApplicationBackgroundService
         LogProcessStart(tasks);
         foreach (var task in tasks)
         {
-            await taskRunner.Run(task);
+            await taskRunner.Run(task, stoppingToken);
         }
     }
 
     private void LogDuplicateTasks()
     {
         string msg = "Cannot execute tasks with duplicate names. No tasks will execute until this error is corrected.";
-        logService.LogError(nameof(XperienceTaskBackgroundService), nameof(Process), msg);
+        logService.LogError(nameof(XperienceTaskBackgroundService), nameof(ExecuteInternal), msg);
     }
 
     private void LogProcessStart(IEnumerable<IXperienceTask> tasks)
     {
         string taskNames = string.Join(string.Empty, tasks.Select(t => $"\n - {t.Settings.Name}"));
-        logService.LogInformation(nameof(XperienceTaskBackgroundService), nameof(Process), $"Executing tasks:{taskNames}");
+        logService.LogInformation(nameof(XperienceTaskBackgroundService), nameof(ExecuteInternal), $"Executing tasks:{taskNames}");
     }
 }
