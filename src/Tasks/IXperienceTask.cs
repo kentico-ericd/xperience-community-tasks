@@ -13,7 +13,7 @@ public interface IXperienceTask
     /// <summary>
     /// Executes the task.
     /// </summary>
-    void Execute();
+    Task Execute();
 
     /// <summary>
     /// Called before the task executes.

@@ -9,5 +9,5 @@ public interface IXperienceTaskRunner
     /// Executes the task without validation. Validation of whether a task should be executed should be performed before calling this
     /// method.
     /// </summary>
-    void Run(IXperienceTask task);
+    Task Run(IXperienceTask task);
 }

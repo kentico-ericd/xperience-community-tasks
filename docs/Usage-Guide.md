@@ -31,7 +31,11 @@ public class MyTask : IXperienceTask
 
     public MyTask(IEventLogService eventLogService) => this.eventLogService = eventLogService;
 
-    public void Execute() => eventLogService.LogWarning(nameof(MyTask), nameof(Execute), "I ran");
+    public Task Execute() {
+        eventLogService.LogWarning(nameof(MyTask), nameof(Execute), "I ran");
+
+        return Task.CompletedTask;
+    }
 }
 ```
 
@@ -56,7 +60,7 @@ public class MyTask : IXperienceTask
 
     public MyTask(ISettingsService settingsService) => this.settingsService = settingsService;
 
-    public void Execute()
+    public Task Execute()
     {
         // Do something...
     }

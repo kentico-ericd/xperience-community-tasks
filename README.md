@@ -29,8 +29,6 @@ Add the following to your application's startup code:
 
 ```cs
 builder.Services.AddKenticoTasks();
-...
-app.StartKenticoTasks();
 ```
 
 Create one or more classes implementing `IXperienceTask` to run your custom code:
@@ -40,7 +38,7 @@ public class MyTask : IXperienceTask
 {
     public XperienceTaskSettings Settings => new(nameof(MyTask), 1);
 
-    public void Execute()
+    public Task Execute()
     {
         // Do something...
     }
